@@ -19,10 +19,14 @@ botaoAdicionar.addEventListener("click", function(event) {
     tabela.appendChild(pacienteTr);
 
     form.reset();
+   var mensagemDeErro = document.querySelector("#mensagens-erros");
+   mensagemDeErro.innerHTML = "";
 });
 
 function exibeMensagemDeErro(erros){
     var ul = document.querySelector("#mensagens-erros");
+    ul.innerHTML = "";
+
     erros.forEach(function(erro){
         var li = document.createElement("li");
         li.textContent = erro;
@@ -70,9 +74,19 @@ function validaPaciente(paciente) {
 
     var erros = [];
 
+    if (paciente.nome.length == 0) erros.push ("O nome não pode ser em branco");
+    
     if (!validaPeso(paciente.peso)) erros.push("Peso é inválido");
 
     if (!validaAltura(paciente.altura)) erros.push("Altura Inválida");
+
+    if (paciente.gordura.length == 0) erros.push ("A gordura não pode ser em branco");
+
+    if (paciente.peso.length == 0) erros.push ("O peso não pode ser em branco");
+        
+    if (paciente.altura.length == 0) erros.push ("A altura não pode ser em branco");
+
+
 
     return erros;
 };
