@@ -9,7 +9,7 @@ body{
 
 header{
 	background-color: #333;
-	height: 3em;
+	height: 3.5em;
 	color: #FFF;
 	margin-bottom: 1em;
 }
@@ -44,8 +44,9 @@ section{
 }
 
 section h2{
-	font-size: 3em;
+	font-size: 2.5em;
 	display: block;
+	padding-top: .25em;
 	padding-bottom: .5em;
 	border-bottom: 1px solid #ccc;
 	margin-bottom: .5em;
@@ -53,13 +54,13 @@ section h2{
 
 table{
 	width: 100%;
-	margin-bottom : .5em;
+	margin-bottom : 1.5em;
     table-layout: fixed;
 
 }
 
 td, th {
-	padding: .7em;
+	padding: .75em;
 	margin: 0;
 	border: 1px solid #ccc;
 	text-align: center;
@@ -97,7 +98,7 @@ label{
 }
 
 button{
-	padding: .5em 2em;
+	padding: .5em 1em;
 	border: 0;
 	border-bottom: 3px solid;
 	border-radius: 6px;
