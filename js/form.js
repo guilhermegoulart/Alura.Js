@@ -8,17 +8,27 @@ botaoAdicionar.addEventListener("click", function(event) {
 
     var pacienteTr = montaTr(paciente);
 
-    if (!validaPaciente(paciente)) {
-        console.log("Paciente Inválido");
+    var erros = validaPaciente(paciente);
+    console.log(erros);
+    if (erros.length > 0) {
+        exibeMensagemDeErro(erros);
         return;
     }
 
     var tabela = document.querySelector("#tabela-pacientes");
-
     tabela.appendChild(pacienteTr);
 
     form.reset();
 });
+
+function exibeMensagemDeErro(erros){
+    var ul = document.querySelector("#mensagens-erros");
+    erros.forEach(function(erro){
+        var li = document.createElement("li");
+        li.textContent = erro;
+        ul.appendChild(li);
+    });
+}
 
 function obtemPacienteDoFormulario(form) {
 
@@ -31,7 +41,7 @@ function obtemPacienteDoFormulario(form) {
     }    
 
     return paciente;
-}
+};
 
 function montaTr(paciente) {
 
@@ -45,7 +55,7 @@ function montaTr(paciente) {
     pacienteTr.appendChild(montaTd(paciente.imc, "info-imc"));
 
     return pacienteTr;
-}
+};
 
 function montaTd(dado, classe) {
     var td = document.createElement("td");
@@ -54,13 +64,15 @@ function montaTd(dado, classe) {
 
     return td; 
 
-}
+};
 
 function validaPaciente(paciente) {
-    if (validaPeso(paciente.peso)) {
-        return true;
-    } else {
-        return false;
-    }
 
-}
+    var erros = [];
+
+    if (!validaPeso(paciente.peso)) erros.push("Peso é inválido");
+
+    if (!validaAltura(paciente.altura)) erros.push("Altura Inválida");
+
+    return erros;
+};
