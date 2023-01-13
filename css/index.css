@@ -100,6 +100,7 @@ button{
 	padding: .5em 2em;
 	border: 0;
 	border-bottom: 3px solid;
+	border-radius: 6px;
 	font-size: 1.2em;
 	cursor: pointer;
 	margin: 0;
